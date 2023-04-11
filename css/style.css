@@ -1,0 +1,19 @@
+*{ 
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(https://indiehoy.com/wp-content/uploads/2020/11/star-wars.jpg);
+    color: white;
+    background-position: center;
+    background-size: cover;
+    background-position-y: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+h1{
+    background-color: black;
+    margin-top: 200px;
+}
