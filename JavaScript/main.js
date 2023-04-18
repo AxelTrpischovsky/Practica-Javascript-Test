@@ -22,19 +22,22 @@ const preguntas = [
     }
     ];
     let puntos = 0;
-    for (let i = 0; i < preguntas.length; i++) {
-    const pregunta = preguntas[i].pregunta;
-    const respuesta = preguntas[i].respuesta;
-    const respuestaUsuario = prompt(pregunta);
-    if (respuestaUsuario === respuesta) {
-        alert("Tu respuesta es correcta! sumas 2 puntos");
-        puntos += 2;
-        console.log("Resultado de la pregunta " + (i + 1) + ": 2 puntos");
-        } else {
-        alert("Respuesta incorrecta");
-        console.log("Resultado de la pregunta " + (i + 1) + ": 0 puntos");
+    function realizarTest(preguntas) {
+        for (let i = 0; i < preguntas.length; i++) {
+            const pregunta = preguntas[i].pregunta;
+            const respuesta = preguntas[i].respuesta;
+            const respuestaUsuario = prompt(pregunta);
+            if (respuestaUsuario === respuesta) {
+                alert("Tu respuesta es correcta! sumas 2 puntos");
+                puntos += 2;
+                console.log("Resultado de la pregunta " + (i + 1) + ": 2 puntos");
+            } else {
+                alert("Respuesta incorrecta");
+                console.log("Resultado de la pregunta " + (i + 1) + ": 0 puntos");
+            }
         }
     }
+    realizarTest(preguntas);
     if (puntos <= 4){
         alert( "Tu resultado es: " + puntos + " A seguir estudiando joven padawan" )
         console.log("Total de puntos: " + puntos);
