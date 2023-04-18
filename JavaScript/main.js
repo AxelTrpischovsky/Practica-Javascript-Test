@@ -1,7 +1,4 @@
 console.log("Test del Mandalorian.")
-
-
-
 const preguntas = [
     {
         pregunta: "¿Cuál es el nombre del mandalorian?",
