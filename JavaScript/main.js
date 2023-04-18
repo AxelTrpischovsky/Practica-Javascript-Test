@@ -1,3 +1,7 @@
+function tituloTest () {
+    alert ("Bienvenido al test de The Mandalorian, recuerda contestar todas las preguntas con la primera letra en Mayúscula")
+}
+tituloTest();
 console.log("Test del Mandalorian.")
 const preguntas = [
     {
