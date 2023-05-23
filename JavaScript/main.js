@@ -16,12 +16,16 @@ class Test {
 constructor(preguntas) {
     this.preguntas = preguntas;
     this.puntos = 0;
+    this.container = document.createElement("div");
+    this.container.classList.add("container");
+    this.reiniciarBtn = document.getElementById("reiniciarBtn");
+    this.reiniciarBtn.addEventListener("click", () => {
+    this.reiniciarTest();
+    restaurarFondo();
+    });
 }
 
 realizarTest() {
-    const container = document.createElement("div");
-    container.classList.add("container");
-
     for (let i = 0; i < this.preguntas.length; i++) {
     const pregunta = this.preguntas[i].pregunta;
     const respuesta = this.preguntas[i].respuesta;
@@ -33,12 +37,12 @@ realizarTest() {
     preguntaElement.textContent = pregunta;
     preguntaElement.classList.add("pregunta");
     respuestaContainer.appendChild(preguntaElement);
-    
+
     const respuestaInput = document.createElement("input");
     respuestaInput.type = "text";
     respuestaInput.classList.add("respuesta-input");
     respuestaContainer.appendChild(respuestaInput);
-    
+
     const verificarBtn = document.createElement("button");
     verificarBtn.textContent = "Verificar";
     verificarBtn.classList.add("verificar-btn");
@@ -58,10 +62,18 @@ realizarTest() {
         this.mostrarResultado();
     });
 
-    container.appendChild(respuestaContainer);
+    this.container.appendChild(respuestaContainer);
     }
 
-    document.body.appendChild(container);
+    document.body.appendChild(this.container);
+}
+
+reiniciarTest() {
+    this.puntos = 0;
+    this.container.innerHTML = "";
+    this.realizarTest();
+    const resultadoSection = document.getElementById("resultado");
+    resultadoSection.textContent = "";
 }
 
 mostrarResultado() {
@@ -89,10 +101,14 @@ mostrarResultado() {
 const preguntas = [
 new Pregunta("¿Cuál es el nombre del mandalorian?", "Din Djarin"),
 new Pregunta("¿Cuántas temporadas tiene The Mandalorian actualmente?", "3"),
-new Pregunta("¿Cuál es el nombre real de Baby Yoda?", "Grogu"),
+new Pregunta("¿Cuál es el nombre real de Baby Yoda", "Grogu"),
 new Pregunta("¿De qué material está hecha la armadura de Mando?", "Beskar"),
 new Pregunta("¿De qué color es el sable que rige a los mandalorianos?", "Negro")
 ];
 
 const test = new Test(preguntas);
 test.realizarTest();
+
+function restaurarFondo() {
+document.body.style.backgroundImage = "url('https://indiehoy.com/wp-content/uploads/2020/11/star-wars.jpg')";
+}
