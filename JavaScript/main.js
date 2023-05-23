@@ -19,10 +19,15 @@ constructor(preguntas) {
     this.container = document.createElement("div");
     this.container.classList.add("container");
     this.reiniciarBtn = document.getElementById("reiniciarBtn");
+    this.resultadoSection = document.getElementById("resultado");
+
     this.reiniciarBtn.addEventListener("click", () => {
     this.reiniciarTest();
     restaurarFondo();
     });
+
+    this.realizarTest();
+    this.mostrarResultado();
 }
 
 realizarTest() {
@@ -59,6 +64,7 @@ realizarTest() {
         console.log("Resultado de la pregunta " + (i + 1) + ": 0 puntos");
         }
         respuestaContainer.style.display = "none";
+        this.guardarResultado();
         this.mostrarResultado();
     });
 
@@ -68,29 +74,46 @@ realizarTest() {
     document.body.appendChild(this.container);
 }
 
+guardarResultado() {
+    const resultado = {
+    puntos: this.puntos,
+    preguntas: this.preguntas
+    };
+
+    localStorage.setItem("resultado", JSON.stringify(resultado));
+}
+
 reiniciarTest() {
     this.puntos = 0;
     this.container.innerHTML = "";
     this.realizarTest();
-    const resultadoSection = document.getElementById("resultado");
-    resultadoSection.textContent = "";
+    this.mostrarResultado();
+
+    this.resultadoSection.textContent = "";
+    localStorage.removeItem("resultado");
 }
 
 mostrarResultado() {
-    const resultadoSection = document.getElementById("resultado");
-    resultadoSection.textContent = "Tu resultado es: " + this.puntos;
+    const resultadoGuardado = localStorage.getItem("resultado");
+    if (resultadoGuardado) {
+    const resultado = JSON.parse(resultadoGuardado);
+    this.puntos = resultado.puntos;
+    this.preguntas = resultado.preguntas;
+    }
+
+    this.resultadoSection.textContent = "Tu resultado es: " + this.puntos;
 
     if (this.puntos <= 4) {
-    resultadoSection.textContent += " A seguir estudiando joven padawan";
+    this.resultadoSection.textContent += " A seguir estudiando joven padawan";
     document.body.style.backgroundImage = "url('./img/padawan.webp')";
     } else if (this.puntos >= 5 && this.puntos <= 7) {
-    resultadoSection.textContent += " Bien hecho! tienes el rango de caballero jedi";
+    this.resultadoSection.textContent += " Bien hecho! tienes el rango de caballero jedi";
     document.body.style.backgroundImage = "url('./img/caballero.jpg')";
     } else if (this.puntos >= 8 && this.puntos < 10) {
-    resultadoSection.textContent += " Eres un maestro Jedi!";
+    this.resultadoSection.textContent += " Eres un maestro Jedi!";
     document.body.style.backgroundImage = "url('./img/maestro.jpg')";
     } else {
-    resultadoSection.textContent += " Gran maestro del consejo!";
+    this.resultadoSection.textContent += " Gran maestro del consejo!";
     document.body.style.backgroundImage = "url('./img/granmaestro.jpg')";
     }
 
@@ -107,7 +130,6 @@ new Pregunta("¿De qué color es el sable que rige a los mandalorianos?", "Negro
 ];
 
 const test = new Test(preguntas);
-test.realizarTest();
 
 function restaurarFondo() {
 document.body.style.backgroundImage = "url('https://indiehoy.com/wp-content/uploads/2020/11/star-wars.jpg')";
