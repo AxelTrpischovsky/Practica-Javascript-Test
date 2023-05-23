@@ -16,4 +16,15 @@ body{
 h1{
     background-color: black;
     margin-top: 200px;
+    margin-right: 600px;
+    margin-left: 500px;
+}
+
+.resultadoDelTest{
+    margin-top: 200px;
+    margin-right: 600px;
+    margin-left: 500px;
+    background-color: black;
+    font-size: large;
+    width: 400px;
 }
