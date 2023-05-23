@@ -21,9 +21,10 @@ h1{
 }
 
 .resultadoDelTest{
-    margin-top: 200px;
+    margin-top: 50px;
     margin-right: 600px;
     margin-left: 500px;
+    margin-bottom: 50px;
     background-color: black;
     font-size: large;
     width: 400px;
@@ -60,4 +61,20 @@ margin-bottom: 10px;
 
 .verificar-btn {
 margin-top: 10px;
+}
+
+#reiniciarBtn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1035px;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+#reiniciarBtn:hover {
+    background-color: #45a049;
+    transition: 0.5s;
+    cursor: pointer;
 }
