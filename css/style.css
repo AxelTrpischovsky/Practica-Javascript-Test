@@ -28,3 +28,36 @@ h1{
     font-size: large;
     width: 400px;
 }
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.respuesta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.445);
+}
+
+.pregunta {
+margin-bottom: 10px;
+}
+
+.respuesta-input {
+margin-bottom: 10px;
+}
+
+.verificar-btn {
+margin-top: 10px;
+}

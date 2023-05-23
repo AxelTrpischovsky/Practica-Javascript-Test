@@ -19,21 +19,29 @@ constructor(preguntas) {
 }
 
 realizarTest() {
+    const container = document.createElement("div");
+    container.classList.add("container");
+
     for (let i = 0; i < this.preguntas.length; i++) {
     const pregunta = this.preguntas[i].pregunta;
     const respuesta = this.preguntas[i].respuesta;
 
     const respuestaContainer = document.createElement("div");
+    respuestaContainer.classList.add("respuesta-container");
+
     const preguntaElement = document.createElement("p");
     preguntaElement.textContent = pregunta;
+    preguntaElement.classList.add("pregunta");
     respuestaContainer.appendChild(preguntaElement);
-
+    
     const respuestaInput = document.createElement("input");
     respuestaInput.type = "text";
+    respuestaInput.classList.add("respuesta-input");
     respuestaContainer.appendChild(respuestaInput);
-
+    
     const verificarBtn = document.createElement("button");
     verificarBtn.textContent = "Verificar";
+    verificarBtn.classList.add("verificar-btn");
     respuestaContainer.appendChild(verificarBtn);
 
     verificarBtn.addEventListener("click", () => {
@@ -50,8 +58,10 @@ realizarTest() {
         this.mostrarResultado();
     });
 
-    document.body.appendChild(respuestaContainer);
+    container.appendChild(respuestaContainer);
     }
+
+    document.body.appendChild(container);
 }
 
 mostrarResultado() {
