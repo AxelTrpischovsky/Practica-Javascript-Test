@@ -35,12 +35,16 @@ class Test {
 
         if (this.puntos <= 4) {
             resultadoSection.textContent += " A seguir estudiando joven padawan";
+            document.body.style.backgroundImage = "url('./img/padawan.webp')";
         } else if (this.puntos >= 5 && this.puntos <= 7) {
             resultadoSection.textContent += " Bien hecho! tienes el rango de caballero jedi";
+            document.body.style.backgroundImage = "url('./img/caballero.jpg')";
         } else if (this.puntos >= 8 && this.puntos < 10) {
             resultadoSection.textContent += " Eres un maestro Jedi!";
+            document.body.style.backgroundImage = "url('./img/maestro.jpg')";
         } else {
             resultadoSection.textContent += " Gran maestro del consejo!";
+            document.body.style.backgroundImage = "url('./img/granmaestro.jpg')";
         }
 
         console.log("Total de puntos: " + this.puntos);
