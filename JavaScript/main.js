@@ -30,19 +30,20 @@ class Test {
         }
     }
     mostrarResultado() {
+        const resultadoSection = document.getElementById("resultado");
+        resultadoSection.textContent = "Tu resultado es: " + this.puntos;
+
         if (this.puntos <= 4) {
-            alert("Tu resultado es: " + this.puntos + " A seguir estudiando joven padawan");
-            console.log("Total de puntos: " + this.puntos);
+            resultadoSection.textContent += " A seguir estudiando joven padawan";
         } else if (this.puntos >= 5 && this.puntos <= 7) {
-            alert("Tu resultado es: " + this.puntos + " Bien hecho! tienes el rango de caballero jedi");
-            console.log("Total de puntos: " + this.puntos);
+            resultadoSection.textContent += " Bien hecho! tienes el rango de caballero jedi";
         } else if (this.puntos >= 8 && this.puntos < 10) {
-            alert("Tu resultado es: " + this.puntos + " Eres un maestro Jedi!");
-            console.log("Total de puntos: " + this.puntos);
+            resultadoSection.textContent += " Eres un maestro Jedi!";
         } else {
-            alert("Tu resultado es: " + this.puntos + " Gran maestro del consejo!");
-            console.log("Total de puntos: " + this.puntos);
+            resultadoSection.textContent += " Gran maestro del consejo!";
         }
+
+        console.log("Total de puntos: " + this.puntos);
     }
 }
 const preguntas = [
