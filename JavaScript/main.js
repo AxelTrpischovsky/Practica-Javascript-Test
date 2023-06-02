@@ -1,12 +1,16 @@
 function tituloTest() {
+return new Promise((resolve) => {
     Swal.fire({
-        title: 'Test The Mandalorian!',
-        text: 'Bienvenido al test de The Mandalorian. Por favor, contesta todas las preguntas con la primera letra en mayúscula.',
-        imageUrl: 'https://lh3.googleusercontent.com/66tQDWRH8qxDMQsCrZK4EfV8kdGNrx71IQQNmlWIyOvlZUdPEVdbGotS1Lyu89eroE-4xJaRl3L_cPYVXfuko-LGJDt_VjmHxMxiYW1F',
-        imageWidth: 400,
-        imageHeight: 200,
-        imageAlt: 'Custom image',
+    title: 'Test The Mandalorian!',
+    text: 'Bienvenido al test de The Mandalorian. Por favor, contesta todas las preguntas con la primera letra en mayúscula.',
+    imageUrl: 'https://lh3.googleusercontent.com/66tQDWRH8qxDMQsCrZK4EfV8kdGNrx71IQQNmlWIyOvlZUdPEVdbGotS1Lyu89eroE-4xJaRl3L_cPYVXfuko-LGJDt_VjmHxMxiYW1F',
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: 'Custom image',
+    }).then(() => {
+    resolve();
     });
+});
 }
 setTimeout(() => {
 tituloTest();
