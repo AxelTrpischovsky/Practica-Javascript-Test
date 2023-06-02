@@ -19,11 +19,12 @@ body {
 /* Estilos específicos para elementos de título */
 h1 {
     color: #FFC107; /* Cambia el color del título a amarillo */
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.425);
     margin-top: 200px;
     margin-right: 660px;
     margin-left: 600px;
     text-align: center;
+    border-radius: 5px;
 
 }
 
