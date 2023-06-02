@@ -1,5 +1,12 @@
 function tituloTest() {
-    alert("Bienvenido al test de The Mandalorian, recuerda contestar todas las preguntas con la primera letra en mayúscula");
+    Swal.fire({
+        title: 'Test The Mandalorian!',
+        text: 'Bienvenido al test de The Mandalorian, recuerda contestar todas las preguntas con la primera letra en mayúscula',
+        imageUrl: 'https://lh3.googleusercontent.com/66tQDWRH8qxDMQsCrZK4EfV8kdGNrx71IQQNmlWIyOvlZUdPEVdbGotS1Lyu89eroE-4xJaRl3L_cPYVXfuko-LGJDt_VjmHxMxiYW1F',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+    });
 }
 
 tituloTest();
@@ -20,8 +27,26 @@ class Test {
         this.container.classList.add("container");
         this.reiniciarBtn = document.getElementById("reiniciarBtn");
         this.reiniciarBtn.addEventListener("click", () => {
-            this.reiniciarTest();
-            restaurarFondo();
+            Swal.fire({
+                title: "Confirmación",
+                text: "¿Estás seguro de que deseas reiniciar el test?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, reiniciar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.reiniciarTest();
+                    restaurarFondo();
+                    Swal.fire(
+                        "Reiniciado",
+                        "El test ha sido reiniciado correctamente",
+                        "success"
+                    );
+                }
+            });
         });
     }
 
@@ -51,7 +76,14 @@ class Test {
                 const respuestaUsuario = respuestaInput.value;
                 const puntos = respuestaUsuario === respuesta ? 2 : 0;
 
-                alert(puntos > 0 ? "Tu respuesta es correcta. Sumas 2 puntos" : "Respuesta incorrecta");
+                Swal.fire({
+                    title: puntos > 0 ? "Tu respuesta es correcta" : "Respuesta incorrecta",
+                    text: puntos > 0 ? "Sumas 2 puntos" : "",
+                    icon: puntos > 0 ? "success" : "error",
+                    width: 300, // Anchura personalizada del recuadro
+                    confirmButtonColor: "#008f39", // Color del botón de confirmación
+                    confirmButtonText: "Aceptar",
+                });
 
                 this.puntos += puntos;
                 console.log(`Resultado de la pregunta ${i + 1}: ${puntos} puntos`);
