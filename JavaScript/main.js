@@ -1,7 +1,7 @@
 function tituloTest() {
     Swal.fire({
         title: 'Test The Mandalorian!',
-        text: 'Bienvenido al test de The Mandalorian, recuerda contestar todas las preguntas con la primera letra en mayúscula',
+        text: 'Bienvenido al test de The Mandalorian. Por favor, contesta todas las preguntas con la primera letra en mayúscula.',
         imageUrl: 'https://lh3.googleusercontent.com/66tQDWRH8qxDMQsCrZK4EfV8kdGNrx71IQQNmlWIyOvlZUdPEVdbGotS1Lyu89eroE-4xJaRl3L_cPYVXfuko-LGJDt_VjmHxMxiYW1F',
         imageWidth: 400,
         imageHeight: 200,
@@ -10,7 +10,7 @@ function tituloTest() {
 }
 
 tituloTest();
-console.log("Test del Mandalorian.");
+console.log("Test de The Mandalorian.");
 
 class Pregunta {
     constructor(pregunta, respuesta) {
@@ -78,9 +78,9 @@ class Test {
 
                 Swal.fire({
                     title: puntos > 0 ? "Tu respuesta es correcta" : "Respuesta incorrecta",
-                    text: puntos > 0 ? "Sumas 2 puntos" : "",
+                    text: puntos > 0 ? "Has sumado 2 puntos" : "",
                     icon: puntos > 0 ? "success" : "error",
-                    width: 300, // Anchura personalizada del recuadro
+                    width: 300, // Anchura personalizada del cuadro de diálogo
                     confirmButtonColor: "#008f39", // Color del botón de confirmación
                     confirmButtonText: "Aceptar",
                 });
@@ -111,16 +111,16 @@ class Test {
         resultadoSection.textContent = "Tu resultado es: " + this.puntos;
 
         if (this.puntos <= 4) {
-            resultadoSection.textContent += " A seguir estudiando joven padawan";
+            resultadoSection.textContent += " A seguir estudiando, joven padawan";
             document.body.style.backgroundImage = "url('./img/padawan.webp')";
         } else if (this.puntos >= 5 && this.puntos <= 7) {
-            resultadoSection.textContent += " Bien hecho! tienes el rango de caballero jedi";
+            resultadoSection.textContent += " ¡Bien hecho! Tienes el rango de Caballero Jedi";
             document.body.style.backgroundImage = "url('./img/caballero.jpg')";
         } else if (this.puntos >= 8 && this.puntos < 10) {
-            resultadoSection.textContent += " Eres un maestro Jedi!";
+            resultadoSection.textContent += " ¡Eres un Maestro Jedi!";
             document.body.style.backgroundImage = "url('./img/maestro.jpg')";
         } else {
-            resultadoSection.textContent += " Gran maestro del consejo!";
+            resultadoSection.textContent += " ¡Gran Maestro del Consejo!";
             document.body.style.backgroundImage = "url('./img/granmaestro.jpg')";
         }
 
@@ -137,9 +137,9 @@ class Test {
 }
 
 const preguntas = [
-    new Pregunta("¿Cuál es el nombre del mandalorian?", "Din Djarin"),
-    new Pregunta("¿Cuántas temporadas tiene The Mandalorian actualmente?", "3"),
-    new Pregunta("¿Cuál es el nombre real de Baby Yoda", "Grogu"),
+    new Pregunta("¿Cuál es el nombre del Mandalorian?", "Din Djarin"),
+    new Pregunta("¿Cuántas temporadas tiene actualmente The Mandalorian?", "3"),
+    new Pregunta("¿Cuál es el nombre real de Baby Yoda?", "Grogu"),
     new Pregunta("¿De qué material está hecha la armadura de Mando?", "Beskar"),
     new Pregunta("¿De qué color es el sable que rige a los mandalorianos?", "Negro")
 ];

@@ -1,9 +1,12 @@
 *{ 
     margin: 0;
     padding: 0;
+    font-family: "Times New Roman", Times, serif;
 }
 
-body{
+body {
+    color: #FFF; /* Cambia el color del texto a blanco */
+    background-color: #000; /* Cambia el color de fondo a negro */
     background-image: url(https://indiehoy.com/wp-content/uploads/2020/11/star-wars.jpg);
     color: white;
     background-position: center;
@@ -13,11 +16,20 @@ body{
     background-repeat: no-repeat;
 }
 
-h1{
+/* Estilos específicos para elementos de título */
+h1 {
+    color: #FFC107; /* Cambia el color del título a amarillo */
     background-color: black;
     margin-top: 200px;
-    margin-right: 600px;
-    margin-left: 500px;
+    margin-right: 660px;
+    margin-left: 600px;
+    text-align: center;
+
+}
+
+/* Estilos específicos para elementos de sección */
+.resultadoDelTest p {
+    font-weight: bold; /* Agrega negrita al texto dentro de la sección */
 }
 
 .resultadoDelTest{
@@ -30,12 +42,10 @@ h1{
     width: 400px;
 }
 
-
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .respuesta-container {
@@ -52,15 +62,15 @@ h1{
 }
 
 .pregunta {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .respuesta-input {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .verificar-btn {
-margin-top: 10px;
+    margin-top: 10px;
 }
 
 #reiniciarBtn {
@@ -78,4 +88,3 @@ margin-top: 10px;
     transition: 0.5s;
     cursor: pointer;
 }
-
