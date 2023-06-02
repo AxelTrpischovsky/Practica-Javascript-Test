@@ -8,7 +8,7 @@ function tituloTest() {
         imageAlt: 'Custom image',
     });
 }
-
+setTimeout(() => {
 tituloTest();
 console.log("Test de The Mandalorian.");
 
@@ -150,3 +150,4 @@ test.realizarTest();
 function restaurarFondo() {
     document.body.style.backgroundImage = "url('https://indiehoy.com/wp-content/uploads/2020/11/star-wars.jpg')";
 }
+}, 500);
